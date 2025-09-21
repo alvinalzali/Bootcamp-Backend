@@ -103,7 +103,7 @@ Database **E-Meeting** fitur:
 - Ref: 'participant.meeting_id' > 'roomMeeting.id' (**many to one**)
 - Ref: 'roomMeeting.createdByUser' > 'users.id' (**many to one**)
 - Ref: 'users.id' - 'premiumUsers.user_id' (**one to one**)
-- Ref: 'plan.id' - 'premiumUsers.plan_id ' (**one to one**)
+- Ref: 'plan.id' < 'premiumUsers.plan_id ' (**one to many**)
 - Ref: 'recordCloud.meeting_id' - 'roomMeeting.id' (**one to one**)
 - Ref: 'roomMeeting.plan_id' > 'plan.id' (**many to one**)
 - Ref: 'participant.meeting_id' > 'recordCloud.meeting_id' (**many to one**)
