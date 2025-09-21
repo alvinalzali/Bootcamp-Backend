@@ -91,8 +91,8 @@ Database **E-Meeting** fitur:
 |-------------|----------------|------------|
 | id          | int (PK, AI)   | Primary Key |
 | meeting_id  | int (FK)       | Relasi ke `roomMeeting.id` (ON DELETE CASCADE) |
-| chat        | varchar        | File chat |
-| video       | varchar        | File video |
+| chat        | varchar        | Path file chat |
+| video       | varchar        | Path File video |
 | created_at  | timestamp      | Tanggal dibuat |
 | updated_at  | timestamp      | Tanggal update |
 
