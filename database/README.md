@@ -99,14 +99,14 @@ Database **E-Meeting** fitur:
 ---
 
 ## 🔗 Relasi Antar Tabel
-Ref: 'participant.user_id' > 'users.id'
-Ref: 'participant.meeting_id' > 'roomMeeting.id'
-Ref: 'roomMeeting.createdByUser' > 'users.id'
-Ref: 'users.id' - 'premiumUsers.user_id'
-Ref: 'plan.id' - 'premiumUsers.plan_id '
-Ref: 'recordCloud.meeting_id' - 'roomMeeting.id'
-Ref: 'roomMeeting.plan_id' > 'plan.id'
-Ref: 'participant.meeting_id' > 'recordCloud.meeting_id'
+- Ref: 'participant.user_id' > 'users.id'
+- Ref: 'participant.meeting_id' > 'roomMeeting.id'
+- Ref: 'roomMeeting.createdByUser' > 'users.id'
+- Ref: 'users.id' - 'premiumUsers.user_id'
+- Ref: 'plan.id' - 'premiumUsers.plan_id '
+- Ref: 'recordCloud.meeting_id' - 'roomMeeting.id'
+- Ref: 'roomMeeting.plan_id' > 'plan.id'
+- Ref: 'participant.meeting_id' > 'recordCloud.meeting_id'
 
 ---
 
