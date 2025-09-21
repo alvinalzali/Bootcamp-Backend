@@ -3,13 +3,13 @@
 Repository ini berisi **ERD (Entity Relationship Diagram)** dan **file .sql** untuk sistem **E-Meeting**.  
 
 - **ERD Database**: [Lihat di dbdiagram.io](https://dbdiagram.io/d/E-meeting-Alvin-68cd8e8d960f6d821af7296d)  
-- **File SQL**: Sudah tersedia di repository ini  
+- **File SQL**: Sudah ada di repo ini
 
 ---
 
 ## 📖 Deskripsi Database
 
-Database ini dirancang untuk mendukung sistem **E-Meeting** yang memiliki fitur:  
+Database **E-Meeting** fitur:  
 - Manajemen pengguna (user & admin)  
 - Manajemen meeting room  
 - Peserta meeting  
@@ -99,14 +99,14 @@ Database ini dirancang untuk mendukung sistem **E-Meeting** yang memiliki fitur:
 ---
 
 ## 🔗 Relasi Antar Tabel
-- `participant.user_id` → `users.id`  
-- `participant.meeting_id` → `roomMeeting.id`  
-- `roomMeeting.createdByUser` → `users.id`
-- `roomMeeting.plan_id` → `plan.id`  
-- `premiumUsers.user_id` → `users.id`  
-- `premiumUsers.plan_id` → `plan.id`  
-- `recordCloud.meeting_id` → `roomMeeting.id`  
-- `participant.meeting_id` → `recordCloud.meeting_id`  
+Ref: 'participant.user_id' > 'users.id'
+Ref: 'participant.meeting_id' > 'roomMeeting.id'
+Ref: 'roomMeeting.createdByUser' > 'users.id'
+Ref: 'users.id' - 'premiumUsers.user_id'
+Ref: 'plan.id' - 'premiumUsers.plan_id '
+Ref: 'recordCloud.meeting_id' - 'roomMeeting.id'
+Ref: 'roomMeeting.plan_id' > 'plan.id'
+Ref: 'participant.meeting_id' > 'recordCloud.meeting_id'
 
 ---
 
