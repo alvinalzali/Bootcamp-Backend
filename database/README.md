@@ -1,4 +1,4 @@
-# 📌 E-Meeting Database
+# 📌 E-Meeting Database (Tugas Pertemuan 11)
 
 Repository ini berisi **ERD (Entity Relationship Diagram)** dan **file .sql** untuk sistem **E-Meeting**.  
 
