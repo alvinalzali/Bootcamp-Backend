@@ -18,6 +18,11 @@ Database **E-Meeting** fitur:
 
 ---
 
+## 📖 Preview ERD
+
+[![Database ERD](https://img.shields.io/badge/ERD-dbdiagram.io-blue?logo=databricks)](https://dbdiagram.io/e/68cd8e8d960f6d821af7296d/68cfe053960f6d821a1474b7)
+
+
 ## 🗂 Struktur Tabel
 
 ### 1. `users`
