@@ -2,7 +2,8 @@
 
 Repository ini berisi **ERD (Entity Relationship Diagram)** dan **file .sql** untuk sistem **E-Meeting**.  
 
-- **ERD Database**: [Lihat di dbdiagram.io](https://dbdiagram.io/d/E-meeting-Alvin-68cd8e8d960f6d821af7296d)  
+- **ERD Database**: <a href="https://dbdiagram.io/d/E-meeting-Alvin-68cd8e8d960f6d821af7296d" target="_blank">Lihat di dbdiagram.io</a>
+
 - **File SQL**: Sudah ada di repo ini
 
 ---
@@ -20,7 +21,14 @@ Database **E-Meeting** fitur:
 
 ## 📖 Preview ERD
 
-[![Database ERD](https://img.shields.io/badge/ERD-dbdiagram.io-blue?logo=databricks)](https://dbdiagram.io/e/68cd8e8d960f6d821af7296d/68cfe053960f6d821a1474b7)
+## ERD Database
+
+<!-- Preview langsung -->
+<iframe width="560" height="315" src="https://dbdiagram.io/d/E-meeting-Alvin-68cd8e8d960f6d821af7296d"></iframe>
+
+<!-- Link buka tab baru -->
+- **Lihat di dbdiagram.io**: <a href="https://dbdiagram.io/d/E-meeting-Alvin-68cd8e8d960f6d821af7296d" target="_blank">Klik di sini</a>
+
 
 
 ## 🗂 Struktur Tabel
