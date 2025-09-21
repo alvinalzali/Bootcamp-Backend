@@ -112,7 +112,7 @@ Database **E-Meeting** fitur:
 
 ## 📝 Catatan
 - Masukkan data ke tabel **users** → role: `1 = User`, `2 = Admin`  
-- Masukkan data ke tabel **plan** → daftar paket yang tersedia  
+- Masukkan data ke tabel **plan** → daftar paket premium yang tersedia  
 - Masukkan data ke tabel **roomMeeting** → contoh: meeting dengan ID `2` direkam.  
 - Masukkan data ke tabel **participant** → peserta join ke meeting room  
 - Masukkan data ke tabel **premiumUsers** → status pembayaran `0 = Menunggu`, `1 = Berhasil`  
