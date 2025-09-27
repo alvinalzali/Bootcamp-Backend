@@ -1,4 +1,4 @@
-# Sinau Koding Bootcamp – Tugas 13 & 14
+# Tugas 13 & 14 (Endpoints)
 ## 📌 Fitur yang Diimplementasikan
 - **Update User**  
   Mengubah data user berdasarkan ID.
