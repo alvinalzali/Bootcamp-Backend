@@ -49,7 +49,7 @@ Berikut adalah beberapa library utama yang digunakan:
 ├── docs/                   # Dokumentasi Swagger (hasil generate `swag init`)
 │   └── ...                 # Auto-generated files oleh Swag
 ├── .env                    # Konfigurasi environment (db config, jwt secret, dll)
-├── go.mod                  # Modul dependency Go
+├── go.mod                  # Modul dependency Go (seperti req.txt)
 ├── go.sum                  # Checksum dan versi dependency
 └── README.md               # Dokumentasi project (file ini)
 ```
@@ -78,7 +78,7 @@ Berikut adalah beberapa library utama yang digunakan:
      ./<nama_app>
      ```
 
-> 💡 Jika kamu sedang build di OS yang sama dengan target, cukup jalankan:
+> 💡 Jika sedang build di OS yang sama dengan pembuatan code server golang, cukup jalankan:
 ```bash
 go build .
 ```
