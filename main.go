@@ -7,8 +7,12 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"time"
 
 	_ "golang_sinau/docs"
+	"golang_sinau/middleware"
+
+	jwt "github.com/golang-jwt/jwt/v5"
 
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
@@ -30,6 +34,11 @@ type User struct {
 	ID   int    `json:"id" validate:"required"`
 	Name string `json:"name" validate:"required"`
 	Age  int    `json:"age" validate:"required,min=0"`
+}
+
+type Login struct {
+	Username string `json:"username" validate:"required"`
+	Password string `json:"password" validate:"required"`
 }
 
 var users = []User{
@@ -58,30 +67,86 @@ func main() {
 	dbName := os.Getenv("db_name")
 
 	db = connectDB(dbUser, dbPassword, dbName, dbHost, dbPort)
+	middleware.JwtSecret = []byte(os.Getenv("jwt_secret"))
+
 	e := echo.New()
 
 	e.Validator = &CustomValidator{validator: validator.New()}
 
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Welcome to the User API")
-	})
-	e.GET("/users", GetUsers)
+	e.POST("/login", login)
+
+	// group routes
+	// using g
+	// g := e.Group("/users")
+	// g.Use(authMiddleware){
+
+	// }
+
+	// buat group users
+	g := e.Group("/users")
+	g.Use(middleware.AuthMiddleware)
+
+	// e.GET("/", func(c echo.Context) error {
+	// 	return c.String(http.StatusOK, "Welcome to the User API")
+	// })
+	g.GET("", GetUsers)
 
 	// /users/:id
-	e.GET("/users/:id", GetUserByID)
+	g.GET("/:id", GetUserByID)
 
 	// insert user
-	e.POST("/users", CreateUser)
+	g.POST("", CreateUser)
 
 	// update user
-	e.PUT("/users/:id", UpdateUser)
+	g.PUT("/:id", UpdateUser)
 
 	// delete user
-	e.DELETE("/users/:id", DeleteUser)
+	g.DELETE("/:id", DeleteUser)
 
 	e.Logger.Fatal(e.Start(":8080"))
+}
+
+func login(c echo.Context) error {
+	var loginData Login
+	if err := c.Bind(&loginData); err != nil {
+		return c.JSON(http.StatusBadRequest, echo.Map{"error": "Invalid input"})
+	}
+
+	if err := c.Validate(&loginData); err != nil {
+		return c.JSON(http.StatusBadRequest, echo.Map{"error": err.Error()})
+	}
+
+	// hardcode username and password
+	if loginData.Username != "alvin" || loginData.Password != "alvin" {
+		return c.JSON(http.StatusUnauthorized, echo.Map{"error": "Invalid username or password"})
+	}
+
+	// untuk generate token SHA256
+	token, err := generateToken()
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": "Failed to generate token"})
+	}
+
+	return c.JSON(http.StatusOK, echo.Map{"token": token})
+}
+
+// membuat generate token ketika login
+func generateToken() (string, error) {
+	// generate token ke jwt
+	jwt := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"username": "alvin",
+		"role":     "admin",
+		"exp":      time.Now().Add(15 * time.Hour).Unix(),
+	})
+
+	tokenString, err := jwt.SignedString(middleware.JwtSecret) // secret key
+	if err != nil {
+		return "", err
+	}
+
+	return tokenString, nil
 }
 
 func connectDB(username, password, dbname, host string, port int) *sql.DB {
@@ -185,6 +250,8 @@ func GetUserByID(c echo.Context) error {
 // @Success      200  {array}   User
 // @Router       /users [get]
 func GetUsers(c echo.Context) error {
+	fmt.Println("Fetching all users from database")
+
 	query := `SELECT id, name, age FROM users`
 	rows, err := db.Query(query)
 	if err != nil {
