@@ -45,7 +45,7 @@ Berikut adalah beberapa library utama yang digunakan:
 .
 ├── main.go                 # Entry point utama aplikasi (routing, init, server)
 ├── middleware/
-│   └── jwt_middleware.go   # Middleware untuk validasi JWT token
+│   └── jwt.go   # Middleware untuk validasi JWT token
 ├── docs/                   # Dokumentasi Swagger (hasil generate `swag init`)
 │   └── ...                 # Auto-generated files oleh Swag
 ├── .env                    # Konfigurasi environment (db config, jwt secret, dll)
