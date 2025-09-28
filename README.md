@@ -41,13 +41,15 @@ Berikut adalah beberapa library utama yang digunakan:
 
 ## ⚙️ Struktur Proyek
 
+```plaintext
 .
-├── main.go                         # Entry point utama aplikasi (routing, init, server)
+├── main.go                 # Entry point utama aplikasi (routing, init, server)
 ├── middleware/
-│   └── jwt_middleware.go          # File middleware untuk validasi JWT token
-├── docs/                          # Folder dokumentasi Swagger (hasil generate `swag init`)
-│   └── ...                        # Auto-generated files oleh Swag
-├── .env                           # File konfigurasi environment (db config, jwt secret, dll)
-├── go.mod                         # Modul dependency Go
-├── go.sum                         # Checksum dan versi dependency
-├── README.md                      # Dokumentasi project (file ini)
+│   └── jwt_middleware.go   # Middleware untuk validasi JWT token
+├── docs/                   # Dokumentasi Swagger (hasil generate `swag init`)
+│   └── ...                 # Auto-generated files oleh Swag
+├── .env                    # Konfigurasi environment (db config, jwt secret, dll)
+├── go.mod                  # Modul dependency Go
+├── go.sum                  # Checksum dan versi dependency
+└── README.md               # Dokumentasi project (file ini)
+```
