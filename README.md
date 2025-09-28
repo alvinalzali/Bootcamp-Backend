@@ -53,3 +53,33 @@ Berikut adalah beberapa library utama yang digunakan:
 ├── go.sum                  # Checksum dan versi dependency
 └── README.md               # Dokumentasi project (file ini)
 ```
+
+## 🚀 Deploy Aplikasi
+
+1. **Build binary:**
+   - Untuk **Windows**:
+     ```bash
+     go build -o <nama_app>.exe
+     ```
+   - Untuk **Linux** (cross-compiling dari Windows/macOS):
+     ```bash
+     GOOS=linux GOARCH=amd64 go build -o <nama_app>
+     ```
+
+2. **Pindahkan binary** (`.exe` atau tanpa ekstensi, tergantung OS) ke server target.
+
+3. **Jalankan binary di server:**
+   - Di Windows:
+     ```bash
+     .\<nama_app>.exe
+     ```
+   - Di Linux/macOS:
+     ```bash
+     ./<nama_app>
+     ```
+
+> 💡 Jika kamu sedang build di OS yang sama dengan target, cukup jalankan:
+```bash
+go build .
+```
+
