@@ -6,6 +6,8 @@ import (
 	"grpc/service"
 	"log"
 
+	_ "github.com/lib/pq"
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -24,9 +26,7 @@ func main() {
 	c := service.NewUserServiceClient(conn)
 
 	// mempersiapkan data untuk akses user service atau request
-	req := &service.UserRequest{
-		Id: 1,
-	}
+	req := &service.UserRequest{Id: 1}
 
 	// req ke server grpc
 	res, err := c.GetUserInfo(context.Background(), req)
