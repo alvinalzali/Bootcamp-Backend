@@ -16,7 +16,7 @@ func main() {
 
 	//membuat code koneksi client ke server grpc
 
-	conn, err := grpc.NewClient("localhost:25265", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient("150.20.30.105:25265", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
