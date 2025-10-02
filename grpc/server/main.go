@@ -27,8 +27,6 @@ type user struct {
 	Age  int
 }
 
-var db *sql.DB
-
 func (s *server) GetUserInfo(ctx context.Context, req *service.UserRequest) (*service.UserResponse,
 	error) {
 	// Implement your logic here

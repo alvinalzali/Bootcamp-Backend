@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"time"
 
-	_ "golang_sinau/docs"
-	"golang_sinau/middleware"
+	_ "bootcamp-backend/docs"
+	"bootcamp-backend/middleware"
 
 	jwt "github.com/golang-jwt/jwt/v5"
 
@@ -39,12 +39,6 @@ type User struct {
 type Login struct {
 	Username string `json:"username" validate:"required"`
 	Password string `json:"password" validate:"required"`
-}
-
-var users = []User{
-	{ID: 1, Name: "Alice", Age: 30},
-	{ID: 2, Name: "Bob", Age: 25},
-	{ID: 3, Name: "Charlie", Age: 35},
 }
 
 var db *sql.DB

@@ -1,4 +1,32 @@
-# 🚀 Code Backend Golang (Sinau Koding) - Tugas
+# 🚀 Backend Golang (Sinau Koding) — Eksplorasi gRPC
+
+## 📚 Pertemuan 16: Microservices Architecture — gRPC (Google Remote Procedure Call)
+
+> Eksplorasi penerapan arsitektur microservices menggunakan **gRPC**, bukan tugas resmi.
+
+### 🔧 Fitur gRPC yang Dieksplorasi:
+- Menjalankan procedure di server lain seolah-olah seperti memanggil fungsi lokal
+- Transfer data yang sangat cepat dengan format **Protobuf**
+- Otomatis generate `struct`, client, dan server handler dari file `.proto`
+
+### 📌 Apa Itu gRPC?
+gRPC (Google Remote Procedure Call) adalah framework RPC yang menggunakan HTTP/2 dan Protobuf, memungkinkan komunikasi antar layanan yang:
+- **Cepat dan efisien** (dibanding REST/JSON)
+- **Type-safe**
+- **Lintas bahasa** (Go, Java, Python, dsb)
+
+### ✅ Kapan Menggunakan gRPC?
+- Microservices internal antar backend service
+- Aplikasi real-time (streaming)
+- Performa tinggi dan bandwidth hemat
+- Integrasi lintas bahasa (Go ↔ Python, Go ↔ Java, dll)
+
+### ⚠️ Kapan Tidak Disarankan?
+- API publik untuk browser atau mobile
+- Ingin debugging mudah pakai `curl` atau Postman
+- Proyek masih kecil dan belum butuh optimasi performa
+
+---
 
 ### Pertemuan 15: Implementasi JWT dan Grouped Routes 
 
@@ -43,15 +71,20 @@ Berikut adalah beberapa library utama yang digunakan:
 
 ```plaintext
 .
-├── main.go                 # Entry point utama aplikasi (routing, init, server)
+├── main.go                  # Entry point utama (init Echo, routes)
 ├── middleware/
-│   └── jwt.go   # Middleware untuk validasi JWT token
-├── docs/                   # Dokumentasi Swagger (hasil generate `swag init`)
-│   └── ...                 # Auto-generated files oleh Swag
-├── .env                    # Konfigurasi environment (db config, jwt secret, dll)
-├── go.mod                  # Modul dependency Go (seperti req.txt)
-├── go.sum                  # Checksum dan versi dependency
-└── README.md               # Dokumentasi project (file ini)
+│   └── jwt.go              # Middleware untuk JWT validation
+├── grpc/                   # Service gRPC atau business logic
+│   └── proto/              # File .proto untuk gRPC
+│   └── client/             # File server gRPC
+│   └── server/             # File client gRPC
+│   └── service/            # File grpc dan pb (gen-go)
+├── docs/                   # Auto-generated Swagger docs
+├── .env                    # Konfigurasi environment (DB, JWT secret, dll)
+├── go.mod                  # Modul dependency Go
+├── go.sum                  # Checksum & lock file untuk dependencies
+└── README.md               # Dokumentasi (file ini)
+
 ```
 
 ## 🚀 Deploy Aplikasi
